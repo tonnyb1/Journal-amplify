@@ -14,7 +14,7 @@ export default function Register() {
 
   async function signUp() {
     try {
-      const {user, userSub} = await Auth.signUp({
+      const { userSub} = await Auth.signUp({
         username: email,
         password,
         attributes: {
