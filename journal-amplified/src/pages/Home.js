@@ -25,7 +25,6 @@ export default function Home() {
       const result = await API.graphql(
         graphqlOperation(mutations.createJournal, { input: journalDetails })
       );
-      console.log('Journal created:', result.data.createJournal);
       setJournals([result.data.createJournal, ...journals])
       setUserInput("");
       setJournalTitle("")
@@ -46,7 +45,6 @@ export default function Home() {
             }
           }
         }));
-        console.log('Journals:', result.data.listJournals.items);
         setJournals(result.data.listJournals.items)
       } catch (error) {
         console.error('Error fetching journals:', error);

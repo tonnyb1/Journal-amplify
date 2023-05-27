@@ -22,7 +22,6 @@ export default function Register() {
         },
         autoSignIn: true
       });
-      console.log('user', user);
       setUserSub(userSub)
       setShowCodeInput(true); // show verification code input
     } catch (error) {

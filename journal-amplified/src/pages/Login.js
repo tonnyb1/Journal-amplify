@@ -11,7 +11,6 @@ export default function Login() {
   async function signIn() {
     try {
       const user = await Auth.signIn(email, password);
-      console.log('user', user.username)
       localStorage.setItem("userToken", user.username)
       navigate("/")
     } catch (error) {

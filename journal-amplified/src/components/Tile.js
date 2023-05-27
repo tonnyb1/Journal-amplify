@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Tile = ( {content, title} ) => {
-  console.log('tilesss',content,title)
   return (
     <TileJournalContainer>
       <Title> {title}</Title>
