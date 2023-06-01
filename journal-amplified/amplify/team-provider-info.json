@@ -17,6 +17,9 @@
       },
       "auth": {
         "journalamplified06397f17": {}
+      },
+      "function": {
+        "graphQlLambdaAuthorizer73688a70": {}
       }
     }
   }
