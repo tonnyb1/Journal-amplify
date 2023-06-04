@@ -5,14 +5,14 @@
  */
 
 const aws = require('aws-sdk');
-const event = require('./event.json');
+// const event = require('./event.json');
 const ses = new aws.SES(); // Create SES service object
 const dynamoDBClient = new aws.DynamoDB.DocumentClient();
 const cognitoIdentityServiceProvider = new aws.CognitoIdentityServiceProvider();
 
 
 exports.handler = async (event) => {
-  console.log('reached here 1')
+  console.log('reached here 1',event)
   const today = new Date();
   const yesterday = new Date(today);
   yesterday.setDate(yesterday.getDate() - 1); // get date 24 hours ago
@@ -31,6 +31,7 @@ exports.handler = async (event) => {
       
     // Query DynamoDB for journal entries in the past 24 hours
     const data = await dynamoDBClient.scan(params).promise();
+    console.log('data 1',data)
     const entries = data.Items;
     
     // Get list of users who posted an entry in the past 24 hours
