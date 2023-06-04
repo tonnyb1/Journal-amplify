@@ -14,14 +14,6 @@
         "authConfig": {
           "additionalAuthenticationProviders": [
             {
-              "apiKeyConfig": {
-                "apiKeyExpirationDate": "2024-05-27T10:08:50.206Z",
-                "apiKeyExpirationDays": 365,
-                "description": "Iam authorization"
-              },
-              "authenticationType": "API_KEY"
-            },
-            {
               "authenticationType": "AMAZON_COGNITO_USER_POOLS",
               "userPoolConfig": {
                 "userPoolId": "authjournalamplified06397f17"
@@ -36,7 +28,12 @@
             }
           ],
           "defaultAuthentication": {
-            "authenticationType": "AWS_IAM"
+            "apiKeyConfig": {
+              "apiKeyExpirationDate": "2024-06-03T20:43:36.980Z",
+              "apiKeyExpirationDays": 365,
+              "description": "journalskey"
+            },
+            "authenticationType": "API_KEY"
           }
         }
       },

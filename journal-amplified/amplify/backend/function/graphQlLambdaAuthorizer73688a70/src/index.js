@@ -4,12 +4,10 @@
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
  */
 
-const aws = require('aws-sdk');
-// const event = require('./event.json');
-const ses = new aws.SES(); // Create SES service object
-const dynamoDBClient = new aws.DynamoDB.DocumentClient();
-const cognitoIdentityServiceProvider = new aws.CognitoIdentityServiceProvider();
-
+const AWS = require('aws-sdk');
+const ses = new AWS.SES(); // Create SES service object
+const dynamoDBClient = new AWS.DynamoDB.DocumentClient();
+const cognitoIdentityServiceProvider = new AWS.CognitoIdentityServiceProvider();
 
 exports.handler = async (event) => {
   console.log('reached here 1',event)

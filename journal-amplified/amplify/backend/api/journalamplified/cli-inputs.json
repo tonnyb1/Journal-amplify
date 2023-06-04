@@ -4,16 +4,13 @@
     "apiName": "journalamplified",
     "serviceName": "AppSync",
     "defaultAuthType": {
-      "mode": "AWS_IAM"
+      "mode": "API_KEY",
+      "expirationTime": 365,
+      "apiKeyExpirationDate": "2024-06-03T20:43:36.980Z",
+      "keyDescription": "journalskey"
     },
     "conflictResolution": {},
     "additionalAuthTypes": [
-      {
-        "mode": "API_KEY",
-        "expirationTime": 365,
-        "apiKeyExpirationDate": "2024-05-27T10:08:50.206Z",
-        "keyDescription": "Iam authorization"
-      },
       {
         "mode": "AMAZON_COGNITO_USER_POOLS",
         "cognitoUserPoolId": "authjournalamplified06397f17"

@@ -21,7 +21,7 @@
       "function": {
         "graphQlLambdaAuthorizer73688a70": {
           "deploymentBucketName": "amplify-journalamplified-dev-143957-deployment",
-          "s3Key": "amplify-builds/graphQlLambdaAuthorizer73688a70-595a327a7063676d645a-build.zip"
+          "s3Key": "amplify-builds/graphQlLambdaAuthorizer73688a70-76627354456632554a50-build.zip"
         }
       }
     }

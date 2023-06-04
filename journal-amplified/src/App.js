@@ -2,7 +2,7 @@
 import './App.css'
 import Login from './pages/Login'
 import Register from './pages/Register'
-import Home from './pages/Landing'
+import Home from './pages/Home'
 import Layout from './components/Layout'
 import {
   RouterProvider,
