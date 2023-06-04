@@ -4,12 +4,14 @@
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
  */
 
-import aws from 'aws-sdk';
+const aws = require('aws-sdk');
+const event = require('./event.json');
 const ses = new aws.SES(); // Create SES service object
 const dynamoDBClient = new aws.DynamoDB.DocumentClient();
 const cognitoIdentityServiceProvider = new aws.CognitoIdentityServiceProvider();
 
-exports.handler = async event => {
+
+exports.handler = async (event) => {
   console.log('reached here 1')
   const today = new Date();
   const yesterday = new Date(today);

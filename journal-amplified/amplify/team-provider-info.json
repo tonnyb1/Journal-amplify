@@ -19,7 +19,10 @@
         "journalamplified06397f17": {}
       },
       "function": {
-        "graphQlLambdaAuthorizer73688a70": {}
+        "graphQlLambdaAuthorizer73688a70": {
+          "deploymentBucketName": "amplify-journalamplified-dev-143957-deployment",
+          "s3Key": "amplify-builds/graphQlLambdaAuthorizer73688a70-6d743148534e65453734-build.zip"
+        }
       }
     }
   }

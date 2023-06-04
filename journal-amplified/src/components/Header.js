@@ -24,8 +24,8 @@ export default function Header() {
         }
     }
 
-      console.log(localStorage.getItem('userToken'),"tokenss")
-      const isLoggedIn = localStorage.getItem("userToken") !== null;
+    const isLoggedIn = localStorage.getItem("userToken") !== null;
+    
     return (
         <HeaderContainer>
             <SiteLogo to="/">#DAILYJOURNAL</SiteLogo>
