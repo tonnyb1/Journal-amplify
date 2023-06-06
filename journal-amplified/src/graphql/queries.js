@@ -45,63 +45,6 @@ export const listUsers = /* GraphQL */ `
     }
   }
 `;
-export const getComment = /* GraphQL */ `
-  query GetComment($id: ID!) {
-    getComment(id: $id) {
-      id
-      Journal {
-        id
-        title
-        content
-        user {
-          id
-          name
-          email
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        userJournalsId
-        owner
-      }
-      content
-      createdAt
-      updatedAt
-      journalCommentsId
-    }
-  }
-`;
-export const listComments = /* GraphQL */ `
-  query ListComments(
-    $filter: ModelCommentFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        Journal {
-          id
-          title
-          content
-          createdAt
-          updatedAt
-          userJournalsId
-          owner
-        }
-        content
-        createdAt
-        updatedAt
-        journalCommentsId
-      }
-      nextToken
-    }
-  }
-`;
 export const getJournal = /* GraphQL */ `
   query GetJournal($id: ID!) {
     getJournal(id: $id) {
@@ -125,6 +68,7 @@ export const getJournal = /* GraphQL */ `
           createdAt
           updatedAt
           journalCommentsId
+          owner
         }
         nextToken
       }
@@ -159,6 +103,65 @@ export const listJournals = /* GraphQL */ `
         createdAt
         updatedAt
         userJournalsId
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getComment = /* GraphQL */ `
+  query GetComment($id: ID!) {
+    getComment(id: $id) {
+      id
+      content
+      Journal {
+        id
+        title
+        content
+        user {
+          id
+          name
+          email
+          createdAt
+          updatedAt
+        }
+        comments {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userJournalsId
+        owner
+      }
+      createdAt
+      updatedAt
+      journalCommentsId
+      owner
+    }
+  }
+`;
+export const listComments = /* GraphQL */ `
+  query ListComments(
+    $filter: ModelCommentFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        content
+        Journal {
+          id
+          title
+          content
+          createdAt
+          updatedAt
+          userJournalsId
+          owner
+        }
+        createdAt
+        updatedAt
+        journalCommentsId
         owner
       }
       nextToken

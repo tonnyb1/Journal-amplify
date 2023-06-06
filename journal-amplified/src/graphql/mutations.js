@@ -79,105 +79,6 @@ export const deleteUser = /* GraphQL */ `
     }
   }
 `;
-export const createComment = /* GraphQL */ `
-  mutation CreateComment(
-    $input: CreateCommentInput!
-    $condition: ModelCommentConditionInput
-  ) {
-    createComment(input: $input, condition: $condition) {
-      id
-      Journal {
-        id
-        title
-        content
-        user {
-          id
-          name
-          email
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        userJournalsId
-        owner
-      }
-      content
-      createdAt
-      updatedAt
-      journalCommentsId
-    }
-  }
-`;
-export const updateComment = /* GraphQL */ `
-  mutation UpdateComment(
-    $input: UpdateCommentInput!
-    $condition: ModelCommentConditionInput
-  ) {
-    updateComment(input: $input, condition: $condition) {
-      id
-      Journal {
-        id
-        title
-        content
-        user {
-          id
-          name
-          email
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        userJournalsId
-        owner
-      }
-      content
-      createdAt
-      updatedAt
-      journalCommentsId
-    }
-  }
-`;
-export const deleteComment = /* GraphQL */ `
-  mutation DeleteComment(
-    $input: DeleteCommentInput!
-    $condition: ModelCommentConditionInput
-  ) {
-    deleteComment(input: $input, condition: $condition) {
-      id
-      Journal {
-        id
-        title
-        content
-        user {
-          id
-          name
-          email
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        userJournalsId
-        owner
-      }
-      content
-      createdAt
-      updatedAt
-      journalCommentsId
-    }
-  }
-`;
 export const createJournal = /* GraphQL */ `
   mutation CreateJournal(
     $input: CreateJournalInput!
@@ -204,6 +105,7 @@ export const createJournal = /* GraphQL */ `
           createdAt
           updatedAt
           journalCommentsId
+          owner
         }
         nextToken
       }
@@ -240,6 +142,7 @@ export const updateJournal = /* GraphQL */ `
           createdAt
           updatedAt
           journalCommentsId
+          owner
         }
         nextToken
       }
@@ -276,12 +179,115 @@ export const deleteJournal = /* GraphQL */ `
           createdAt
           updatedAt
           journalCommentsId
+          owner
         }
         nextToken
       }
       createdAt
       updatedAt
       userJournalsId
+      owner
+    }
+  }
+`;
+export const createComment = /* GraphQL */ `
+  mutation CreateComment(
+    $input: CreateCommentInput!
+    $condition: ModelCommentConditionInput
+  ) {
+    createComment(input: $input, condition: $condition) {
+      id
+      content
+      Journal {
+        id
+        title
+        content
+        user {
+          id
+          name
+          email
+          createdAt
+          updatedAt
+        }
+        comments {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userJournalsId
+        owner
+      }
+      createdAt
+      updatedAt
+      journalCommentsId
+      owner
+    }
+  }
+`;
+export const updateComment = /* GraphQL */ `
+  mutation UpdateComment(
+    $input: UpdateCommentInput!
+    $condition: ModelCommentConditionInput
+  ) {
+    updateComment(input: $input, condition: $condition) {
+      id
+      content
+      Journal {
+        id
+        title
+        content
+        user {
+          id
+          name
+          email
+          createdAt
+          updatedAt
+        }
+        comments {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userJournalsId
+        owner
+      }
+      createdAt
+      updatedAt
+      journalCommentsId
+      owner
+    }
+  }
+`;
+export const deleteComment = /* GraphQL */ `
+  mutation DeleteComment(
+    $input: DeleteCommentInput!
+    $condition: ModelCommentConditionInput
+  ) {
+    deleteComment(input: $input, condition: $condition) {
+      id
+      content
+      Journal {
+        id
+        title
+        content
+        user {
+          id
+          name
+          email
+          createdAt
+          updatedAt
+        }
+        comments {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userJournalsId
+        owner
+      }
+      createdAt
+      updatedAt
+      journalCommentsId
       owner
     }
   }

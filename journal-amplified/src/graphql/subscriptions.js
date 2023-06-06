@@ -70,96 +70,6 @@ export const onDeleteUser = /* GraphQL */ `
     }
   }
 `;
-export const onCreateComment = /* GraphQL */ `
-  subscription OnCreateComment($filter: ModelSubscriptionCommentFilterInput) {
-    onCreateComment(filter: $filter) {
-      id
-      Journal {
-        id
-        title
-        content
-        user {
-          id
-          name
-          email
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        userJournalsId
-        owner
-      }
-      content
-      createdAt
-      updatedAt
-      journalCommentsId
-    }
-  }
-`;
-export const onUpdateComment = /* GraphQL */ `
-  subscription OnUpdateComment($filter: ModelSubscriptionCommentFilterInput) {
-    onUpdateComment(filter: $filter) {
-      id
-      Journal {
-        id
-        title
-        content
-        user {
-          id
-          name
-          email
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        userJournalsId
-        owner
-      }
-      content
-      createdAt
-      updatedAt
-      journalCommentsId
-    }
-  }
-`;
-export const onDeleteComment = /* GraphQL */ `
-  subscription OnDeleteComment($filter: ModelSubscriptionCommentFilterInput) {
-    onDeleteComment(filter: $filter) {
-      id
-      Journal {
-        id
-        title
-        content
-        user {
-          id
-          name
-          email
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        userJournalsId
-        owner
-      }
-      content
-      createdAt
-      updatedAt
-      journalCommentsId
-    }
-  }
-`;
 export const onCreateJournal = /* GraphQL */ `
   subscription OnCreateJournal(
     $filter: ModelSubscriptionJournalFilterInput
@@ -186,6 +96,7 @@ export const onCreateJournal = /* GraphQL */ `
           createdAt
           updatedAt
           journalCommentsId
+          owner
         }
         nextToken
       }
@@ -222,6 +133,7 @@ export const onUpdateJournal = /* GraphQL */ `
           createdAt
           updatedAt
           journalCommentsId
+          owner
         }
         nextToken
       }
@@ -258,12 +170,115 @@ export const onDeleteJournal = /* GraphQL */ `
           createdAt
           updatedAt
           journalCommentsId
+          owner
         }
         nextToken
       }
       createdAt
       updatedAt
       userJournalsId
+      owner
+    }
+  }
+`;
+export const onCreateComment = /* GraphQL */ `
+  subscription OnCreateComment(
+    $filter: ModelSubscriptionCommentFilterInput
+    $owner: String
+  ) {
+    onCreateComment(filter: $filter, owner: $owner) {
+      id
+      content
+      Journal {
+        id
+        title
+        content
+        user {
+          id
+          name
+          email
+          createdAt
+          updatedAt
+        }
+        comments {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userJournalsId
+        owner
+      }
+      createdAt
+      updatedAt
+      journalCommentsId
+      owner
+    }
+  }
+`;
+export const onUpdateComment = /* GraphQL */ `
+  subscription OnUpdateComment(
+    $filter: ModelSubscriptionCommentFilterInput
+    $owner: String
+  ) {
+    onUpdateComment(filter: $filter, owner: $owner) {
+      id
+      content
+      Journal {
+        id
+        title
+        content
+        user {
+          id
+          name
+          email
+          createdAt
+          updatedAt
+        }
+        comments {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userJournalsId
+        owner
+      }
+      createdAt
+      updatedAt
+      journalCommentsId
+      owner
+    }
+  }
+`;
+export const onDeleteComment = /* GraphQL */ `
+  subscription OnDeleteComment(
+    $filter: ModelSubscriptionCommentFilterInput
+    $owner: String
+  ) {
+    onDeleteComment(filter: $filter, owner: $owner) {
+      id
+      content
+      Journal {
+        id
+        title
+        content
+        user {
+          id
+          name
+          email
+          createdAt
+          updatedAt
+        }
+        comments {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userJournalsId
+        owner
+      }
+      createdAt
+      updatedAt
+      journalCommentsId
       owner
     }
   }
