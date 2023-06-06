@@ -18,6 +18,7 @@ export const createUser = /* GraphQL */ `
           createdAt
           updatedAt
           userJournalsId
+          owner
         }
         nextToken
       }
@@ -43,6 +44,7 @@ export const updateUser = /* GraphQL */ `
           createdAt
           updatedAt
           userJournalsId
+          owner
         }
         nextToken
       }
@@ -68,11 +70,111 @@ export const deleteUser = /* GraphQL */ `
           createdAt
           updatedAt
           userJournalsId
+          owner
         }
         nextToken
       }
       createdAt
       updatedAt
+    }
+  }
+`;
+export const createComment = /* GraphQL */ `
+  mutation CreateComment(
+    $input: CreateCommentInput!
+    $condition: ModelCommentConditionInput
+  ) {
+    createComment(input: $input, condition: $condition) {
+      id
+      Journal {
+        id
+        title
+        content
+        user {
+          id
+          name
+          email
+          createdAt
+          updatedAt
+        }
+        comments {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userJournalsId
+        owner
+      }
+      content
+      createdAt
+      updatedAt
+      journalCommentsId
+    }
+  }
+`;
+export const updateComment = /* GraphQL */ `
+  mutation UpdateComment(
+    $input: UpdateCommentInput!
+    $condition: ModelCommentConditionInput
+  ) {
+    updateComment(input: $input, condition: $condition) {
+      id
+      Journal {
+        id
+        title
+        content
+        user {
+          id
+          name
+          email
+          createdAt
+          updatedAt
+        }
+        comments {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userJournalsId
+        owner
+      }
+      content
+      createdAt
+      updatedAt
+      journalCommentsId
+    }
+  }
+`;
+export const deleteComment = /* GraphQL */ `
+  mutation DeleteComment(
+    $input: DeleteCommentInput!
+    $condition: ModelCommentConditionInput
+  ) {
+    deleteComment(input: $input, condition: $condition) {
+      id
+      Journal {
+        id
+        title
+        content
+        user {
+          id
+          name
+          email
+          createdAt
+          updatedAt
+        }
+        comments {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        userJournalsId
+        owner
+      }
+      content
+      createdAt
+      updatedAt
+      journalCommentsId
     }
   }
 `;
@@ -108,6 +210,7 @@ export const createJournal = /* GraphQL */ `
       createdAt
       updatedAt
       userJournalsId
+      owner
     }
   }
 `;
@@ -143,6 +246,7 @@ export const updateJournal = /* GraphQL */ `
       createdAt
       updatedAt
       userJournalsId
+      owner
     }
   }
 `;
@@ -178,102 +282,7 @@ export const deleteJournal = /* GraphQL */ `
       createdAt
       updatedAt
       userJournalsId
-    }
-  }
-`;
-export const createComment = /* GraphQL */ `
-  mutation CreateComment(
-    $input: CreateCommentInput!
-    $condition: ModelCommentConditionInput
-  ) {
-    createComment(input: $input, condition: $condition) {
-      id
-      Journal {
-        id
-        title
-        content
-        user {
-          id
-          name
-          email
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        userJournalsId
-      }
-      content
-      createdAt
-      updatedAt
-      journalCommentsId
-    }
-  }
-`;
-export const updateComment = /* GraphQL */ `
-  mutation UpdateComment(
-    $input: UpdateCommentInput!
-    $condition: ModelCommentConditionInput
-  ) {
-    updateComment(input: $input, condition: $condition) {
-      id
-      Journal {
-        id
-        title
-        content
-        user {
-          id
-          name
-          email
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        userJournalsId
-      }
-      content
-      createdAt
-      updatedAt
-      journalCommentsId
-    }
-  }
-`;
-export const deleteComment = /* GraphQL */ `
-  mutation DeleteComment(
-    $input: DeleteCommentInput!
-    $condition: ModelCommentConditionInput
-  ) {
-    deleteComment(input: $input, condition: $condition) {
-      id
-      Journal {
-        id
-        title
-        content
-        user {
-          id
-          name
-          email
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        userJournalsId
-      }
-      content
-      createdAt
-      updatedAt
-      journalCommentsId
+      owner
     }
   }
 `;

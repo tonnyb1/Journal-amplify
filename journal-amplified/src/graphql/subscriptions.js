@@ -15,6 +15,7 @@ export const onCreateUser = /* GraphQL */ `
           createdAt
           updatedAt
           userJournalsId
+          owner
         }
         nextToken
       }
@@ -37,6 +38,7 @@ export const onUpdateUser = /* GraphQL */ `
           createdAt
           updatedAt
           userJournalsId
+          owner
         }
         nextToken
       }
@@ -59,107 +61,12 @@ export const onDeleteUser = /* GraphQL */ `
           createdAt
           updatedAt
           userJournalsId
+          owner
         }
         nextToken
       }
       createdAt
       updatedAt
-    }
-  }
-`;
-export const onCreateJournal = /* GraphQL */ `
-  subscription OnCreateJournal($filter: ModelSubscriptionJournalFilterInput) {
-    onCreateJournal(filter: $filter) {
-      id
-      title
-      content
-      user {
-        id
-        name
-        email
-        Journals {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          content
-          createdAt
-          updatedAt
-          journalCommentsId
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      userJournalsId
-    }
-  }
-`;
-export const onUpdateJournal = /* GraphQL */ `
-  subscription OnUpdateJournal($filter: ModelSubscriptionJournalFilterInput) {
-    onUpdateJournal(filter: $filter) {
-      id
-      title
-      content
-      user {
-        id
-        name
-        email
-        Journals {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          content
-          createdAt
-          updatedAt
-          journalCommentsId
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      userJournalsId
-    }
-  }
-`;
-export const onDeleteJournal = /* GraphQL */ `
-  subscription OnDeleteJournal($filter: ModelSubscriptionJournalFilterInput) {
-    onDeleteJournal(filter: $filter) {
-      id
-      title
-      content
-      user {
-        id
-        name
-        email
-        Journals {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          content
-          createdAt
-          updatedAt
-          journalCommentsId
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      userJournalsId
     }
   }
 `;
@@ -184,6 +91,7 @@ export const onCreateComment = /* GraphQL */ `
         createdAt
         updatedAt
         userJournalsId
+        owner
       }
       content
       createdAt
@@ -213,6 +121,7 @@ export const onUpdateComment = /* GraphQL */ `
         createdAt
         updatedAt
         userJournalsId
+        owner
       }
       content
       createdAt
@@ -242,11 +151,120 @@ export const onDeleteComment = /* GraphQL */ `
         createdAt
         updatedAt
         userJournalsId
+        owner
       }
       content
       createdAt
       updatedAt
       journalCommentsId
+    }
+  }
+`;
+export const onCreateJournal = /* GraphQL */ `
+  subscription OnCreateJournal(
+    $filter: ModelSubscriptionJournalFilterInput
+    $owner: String
+  ) {
+    onCreateJournal(filter: $filter, owner: $owner) {
+      id
+      title
+      content
+      user {
+        id
+        name
+        email
+        Journals {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      comments {
+        items {
+          id
+          content
+          createdAt
+          updatedAt
+          journalCommentsId
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      userJournalsId
+      owner
+    }
+  }
+`;
+export const onUpdateJournal = /* GraphQL */ `
+  subscription OnUpdateJournal(
+    $filter: ModelSubscriptionJournalFilterInput
+    $owner: String
+  ) {
+    onUpdateJournal(filter: $filter, owner: $owner) {
+      id
+      title
+      content
+      user {
+        id
+        name
+        email
+        Journals {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      comments {
+        items {
+          id
+          content
+          createdAt
+          updatedAt
+          journalCommentsId
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      userJournalsId
+      owner
+    }
+  }
+`;
+export const onDeleteJournal = /* GraphQL */ `
+  subscription OnDeleteJournal(
+    $filter: ModelSubscriptionJournalFilterInput
+    $owner: String
+  ) {
+    onDeleteJournal(filter: $filter, owner: $owner) {
+      id
+      title
+      content
+      user {
+        id
+        name
+        email
+        Journals {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      comments {
+        items {
+          id
+          content
+          createdAt
+          updatedAt
+          journalCommentsId
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      userJournalsId
+      owner
     }
   }
 `;
