@@ -25,6 +25,9 @@
                 "lambdaFunction": "graphQlLambdaAuthorizer73688a70",
                 "ttlSeconds": "300"
               }
+            },
+            {
+              "authenticationType": "AWS_IAM"
             }
           ],
           "defaultAuthentication": {

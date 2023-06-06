@@ -19,6 +19,9 @@
         "mode": "AWS_LAMBDA",
         "lambdaFunction": "graphQlLambdaAuthorizer73688a70",
         "ttlSeconds": "300"
+      },
+      {
+        "mode": "AWS_IAM"
       }
     ]
   }
